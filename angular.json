@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/style.scss"
             ],
             "scripts": []
           },
@@ -94,7 +94,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "src/theme.scss"
             ],
             "scripts": []
           }
@@ -102,5 +103,7 @@
       }
     }
   },
-  "defaultProject": "loan-app"
+  "cli": {
+    "analytics": false
+  }
 }
