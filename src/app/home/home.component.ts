@@ -1,3 +1,14 @@
+/*
+============================================
+; Title: Loan_App
+; File Name: home.component.ts
+; Author: Professor Krasso
+; Date: 20 July 2022
+; Modified By: Laura Kendl
+; Description: Demonstrates how to build an Angular application.
+===========================================
+*/
+
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
