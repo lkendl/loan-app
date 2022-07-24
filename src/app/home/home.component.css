@@ -1,10 +1,26 @@
 /**
 ============================================
-; Title: Exercise 7.3
+; Title: Loan_App
 ; File Name: home.component.css
 ; Author: Professor Krasso
-; Date: 5 July 2022
+; Date: 20 July 2022
 ; Modified By: Laura Kendl
 ; Description: Demonstrates how to build an Angular application.
 ===========================================
 */
+
+#monthlyPaymentTotal, #interestPaid {
+  font-size: 48px;
+}
+
+.resultsContainer {
+  margin: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.title {
+  margin: 30px auto 40px;
+}

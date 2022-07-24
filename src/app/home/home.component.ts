@@ -1,107 +1,51 @@
-/*
-============================================
-; Title: Exercise 7.3
-; File Name: home.component.ts
-; Author: Professor Krasso
-; Date: 5 July 2022
-; Modified By: Laura Kendl
-; Description: Demonstrates how to build an Angular application.
-===========================================
-*/
-
-import { Component, OnInit } from '@angular/core';
-import { ITranscript } from '../transcript.interface';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: [ './home.component.css' ]
 })
 export class HomeComponent implements OnInit {
 
-  selectableGrades: Array<string> = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'];
-  transcriptEntries: Array<ITranscript> = [];
-  gpaTotal: number = 0;;
-  transcriptForm: FormGroup;
+  loanAmount: number;
+  interestRate: number;
+  numberOfYears: number;
+  interestPaidTotal: number = 0;
+  monthlyPaymentTotal: number = 0;
+  calculatorForm: FormGroup;
+  monthlyPayment: number;
 
-  constructor(private fb: FormBuilder) {
 
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    // Use the FormBuilder to build a new FormGroup with two FormControls: course and grade.
-    this.transcriptForm = this.fb.group({
-      course: ['', Validators.required],
-      grade: ['', Validators.required]
+
+    this.calculatorForm = this.fb.group({
+      loanAmount: ['', Validators.required],
+      interestRate: ['', Validators.required],
+      numberOfYears: ['', Validators.required]
+
     })
   }
 
-  // Add a get() function that returns the transcriptForm controls.
-  get form() { return this.transcriptForm.controls; }
+// Add a get() function that returns the transcriptForm controls.
+get form() { return this.calculatorForm.controls; }
 
-  onSubmit(event) {
+calculatePayment() {
 
-    // Push a new object literal to the transcriptEntries array using the values captured from the form.
-    this.transcriptEntries.push({
-      course: this.form.course.value,
-      grade: this.form.grade.value
-    });
+// Monthly payment formula.
+// Input: Loan = 5316 Interest Rate= 5.74 Number of Years = 4
+// Expected Output: Monthly = $124.21 Interest Paid = $646.08
+this.monthlyPayment = (this.form.loanAmount.value * (((this.form.interestRate.value/100)/12) * Math.pow((((this.form.interestRate.value/100)/12) +1), (this.form.numberOfYears.value*12))) / (Math.pow((1 + ((this.form.interestRate.value/100)/12)), (this.form.numberOfYears.value*12)) -1));
 
-    // Use an event object to reset Validation.
-    event.currentTarget.reset();
+// Round monthlyPaymentTotal to two decimal places.
+this.monthlyPaymentTotal = parseFloat(this.monthlyPayment.toFixed(2));
+
+// Interest paid formula.
+this.interestPaidTotal = (this.monthlyPaymentTotal * this.form.numberOfYears.value*12) - this.form.loanAmount.value;
+
   }
 
-  calculateResults() {
-    let gpa: number = 0;
-
-    for (let entry of this.transcriptEntries) {
-      console.log(entry.grade)
-      switch(entry.grade) {
-        case 'A':
-          console.log('its an a')
-          gpa += 4.0;
-          break;
-        case 'A-':
-          gpa += 3.7;
-          break;
-        case 'B+':
-          gpa += 3.33;
-          break;
-        case 'B':
-          gpa += 3.00;
-          break;
-        case 'B-':
-          gpa += 2.70;
-          break;
-        case 'C+':
-          gpa += 2.30;
-          break;
-        case 'C-':
-          gpa += 1.70;
-          break;
-        case 'D+':
-          gpa += 1.30;
-          break;
-        case 'D':
-          gpa += 1.00;
-          break;
-        case 'D-':
-          gpa += 0.70;
-          break;
-        default:
-          gpa += 0.00;
-          break;
-      }
-    }
-
-    console.log(gpa);
-    this.gpaTotal = gpa / this.transcriptEntries.length;
-    console.log(this.gpaTotal);
-  }
-
-  clearEntries() {
-    this.transcriptEntries = [];
-    this.gpaTotal = 0;
-  }
 }
+

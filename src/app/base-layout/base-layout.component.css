@@ -1,20 +1,35 @@
 /**
 ============================================
-; Title: Exercise 7.3
+; Title: Loan_App
 ; File Name: base-layout.component.css
 ; Author: Professor Krasso
-; Date: 5 July 2022
+; Date: 20 July 2022
 ; Modified By: Laura Kendl
 ; Description: Demonstrates how to build an Angular application.
 ===========================================
 */
 
 .logo {
-  margin-top: 5px;
+  margin-top: 40px;
+  text-align: center;
+  z-index: 999;
+  background-color: #FFF;
+  padding: 15px;
+  border-radius: 100%;
+  width: 70px;
 }
 
 .main-container {
   padding-top: 25px;
   width: 80%;
   margin: 0 auto;
+}
+
+.mat-card-title {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.content-container {
+  margin-bottom: 50px;
 }

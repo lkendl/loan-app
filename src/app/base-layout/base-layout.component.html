@@ -1,24 +1,25 @@
 <!--
 ============================================
-; Title: Exercise 7.3
+; Title: Loan_App
 ; File Name: base-layout.component.html
 ; Author: Professor Krasso
-; Date: 5 July 2022
+; Date: 20 July 2022
 ; Modified By: Laura Kendl
 ; Description: Demonstrates how to build an Angular application.
 ===========================================
 -->
-
+<body>
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
+  <mat-toolbar-row class="nav-menu">
     <div class="logo">
-      <img src="./assets/gpa-calculator-app.png" height="80" />
+      <a href="/"><img src="./assets/loan_calc_logo.png" height="60" /></a>
     </div>
 
     <div style="width: 80%">
-      <div fxLayout="row wrap" fxLayoutAlign="end start">
+      <div fxLayout="row wrap" fxLayoutAlign="start">
         <button mat-button routerLink="/">Home</button>
-        <button mat-button (click)="signOut()">Sign Out</button> <!--The click event calls signOut function.-->
+        <button mat-button routerLink="/about">About</button>
+        <button mat-button routerLink="/contact">Contact Us</button>
       </div>
     </div>
   </mat-toolbar-row>
@@ -28,14 +29,13 @@
 
 <div fxLayout="row wrap">
   <div fxFlex>
-    <mat-card class="main-container">
-      <mat-card-title>{{ assignment }}</mat-card-title>
-
-      <br /><br />
+    <mat-card class="content-container" color="accent, 50">
 
       <mat-card-content>
         <router-outlet></router-outlet>
       </mat-card-content>
+
     </mat-card>
   </div>
 </div>
+</body>

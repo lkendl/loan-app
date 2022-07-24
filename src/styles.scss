@@ -1,0 +1,63 @@
+/**
+============================================
+; Title: Loan_App
+; File Name: style.scss
+; Author: Professor Krasso
+; Date: 16 July 2022
+; Modified By: Laura Kendl
+; Description: Demonstrates how to build an Angular application.
+; Resources::after; https://blog.thoughtram.io/angular/2017/05/23/custom-themes-with-angular-material.html
+; ===========================================
+*/
+
+@import "./theme";
+
+@include mat-core();
+
+body {
+  background-color: linear-gradient(#D5D5D5, #FFF);
+  height: 150vh;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.logo {
+  margin-top: 5px;
+}
+
+.toolbar {
+  margin-top: 15px;
+  height: 50px;
+  position: fixed;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.nav-menu {
+  margin: 5px;
+}
+
+.content-container {
+  margin: 25px auto auto;
+  width: 75%;
+}
+
+.gold {
+  color: #946B2D;
+}
+
+// Ravenclaw Theme
+
+// .ravenclaw-dark-blue {
+//   color: #0E1A40;
+// }
+// .ravenclaw-blue {
+//   color: #222F5B;
+// }
+// .ravenclaw-gray {
+//   color: #D5D5D5;
+// }
+// .ravenclaw-gold {
+//   color: #946B2D;
+// }

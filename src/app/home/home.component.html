@@ -1,61 +1,65 @@
 <!--
 ============================================
-; Title: Exercise 7.3
+; Title: Loan_App
 ; File Name: home.component.html
 ; Author: Professor Krasso
-; Date: 5 July 2022
+; Date: 20 July 2022
 ; Modified By: Laura Kendl
 ; Description: Demonstrates how to build an Angular application.
+; Resources:
+; Stackblitz: https://stackblitz.com/edit/simple-interest-calculator?file=src%2Fapp%2Fapp.component.html,src%2Fapp%2Fapp.component.ts (Simple Interest Calculator)
 ===========================================
 -->
+
+<mat-card-title class="title text-center gold">Welcome to the Loan Application!</mat-card-title>
 
 <div fxLayout="row wrap" fxLayoutGap="20px">
 
   <div fxFlex class="grade-form">
     <mat-card class="mat-elevation-z8">
-      <mat-card-title>Grade Entry</mat-card-title>
-      <mat-card-content>
-        <form fxLayout="column" fxLayoutGap="16px" [formGroup]="transcriptForm" (ngSubmit)="onSubmit($event); transcriptForm.reset()">
-          <mat-form-field fxFlex appearance="fill">
-            <mat-label>Course</mat-label>
-            <input type="text" name="txtCourse" required id="txtCourse" matInput formControlName="course" />
-          </mat-form-field>
+
+       <mat-card-content>
+
+        <mat-label>Loan Amount:</mat-label>
+
+        <form fxLayout="column" fxLayoutGap="16px" [formGroup]="calculatorForm">
 
           <mat-form-field fxFlex appearance="fill">
-            <mat-label>Grade</mat-label>
-            <mat-select formControlName="grade" required name="selectGrade">
-              <mat-option *ngFor="let grade of selectableGrades" [value]="grade">
-                {{ grade }}
-              </mat-option>
-            </mat-select>
+            <mat-label>Loan Amount</mat-label>
+            <input type="number" name="txtLoanAmount" required id="txtLoanAmount" matInput formControlName="loanAmount" />
           </mat-form-field>
-          <button type="submit" [disabled]="!transcriptForm.valid" mat-raised-button color="primary">Save</button>
+
+          <mat-label>Interest Rate (ex: 4.5):</mat-label>
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Interest Rate</mat-label>
+            <input type="number" name="txtInterestRate" required id="txtInterestRate" matInput formControlName="interestRate" />
+          </mat-form-field>
+
+          <mat-label>Number of years:</mat-label>
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Number of years:</mat-label>
+            <input type="number" name="txtNumberOfYears" required id="txtNumberOfYears" matInput formControlName="numberOfYears" />
+          </mat-form-field>
+
+          <button mat-button color="primary" (click)="calculatePayment()">Calculate</button>
+
         </form>
       </mat-card-content>
     </mat-card>
   </div>
 
-  <div fxFlex class="grade-summary">
-    <button mat-button color="primary" (click)="clearEntries()">Clear Transcript</button>
-    <mat-card class="mat-elevation-z8">
-      <mat-card-title>Transcript</mat-card-title>
-      <mat-card-content>
-        <app-grade-summary *ngFor="let entry of transcriptEntries" [course]="entry.course" [grade]="entry.grade"></app-grade-summary>
+  <div fxFlex class="monthly-payment">
+
+    <mat-card class="mat-elevation-z8 text-center">
+      <mat-card-title>Your monthly payment:</mat-card-title>
+      <mat-card-content class="resultsContainer">
+        <app-monthly-payment [monthlyPaymentTotal]="monthlyPaymentTotal" class="gold" id="monthlyPaymentTotal"></app-monthly-payment>
+      </mat-card-content>
+
+      <mat-card-title>Interest paid:</mat-card-title>
+      <mat-card-content class="resultsContainer">
+        <app-interest-paid [interestPaidTotal]="interestPaidTotal" class="gold" id="interestPaid"></app-interest-paid>
       </mat-card-content>
     </mat-card>
   </div>
 </div>
-
-<br />
-
-<div fxLayout="column" fxLayoutGap="20px">
-  <div fxFlex class="gpa">
-    <button mat-button color="primary" (click)="calculateResults()">Calculate GPA</button>
-
-    <mat-card class="mat-elevation-z8">
-      <mat-card-title style="text-align: center;">GPA: <app-gpa [gpaTotal]="gpaTotal"></app-gpa></mat-card-title>
-    </mat-card>
-  </div>
-</div>
-
-

@@ -1,0 +1,61 @@
+/**
+============================================
+; Title: Loan_App
+; File Name: about.component.css
+; Author: Professor Krasso
+; Date: 20 July 2022
+; Modified By: Laura Kendl
+; Description: Demonstrates how to build an Angular application.
+===========================================
+*/
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.title {
+  margin: 30px auto 40px;
+}
+
+.composer-biography {
+  width: 75%;
+}
+
+.about-img-container {
+  margin: auto;
+}
+
+.about-img {
+  max-width: 200px;
+  padding: 5px;
+}
+
+.ravenclaw-img {
+  max-width: 100%;
+  padding: 5px;
+}
+
+.bio-img {
+  max-width: 100%;
+  margin: 15px 0 0;
+}
+
+.about-txt-container {
+  margin-top: 20px;
+}
+
+.about-container {
+  width: 60%;
+  margin: auto auto;
+  line-height: 2;
+}
+
+p {
+  text-indent: 10%;
+}

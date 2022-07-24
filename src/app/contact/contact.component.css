@@ -1,7 +1,7 @@
-/*
+/**
 ============================================
 ; Title: Loan_App
-; File Name: app.component.ts
+; File Name: contact.component.css
 ; Author: Professor Krasso
 ; Date: 20 July 2022
 ; Modified By: Laura Kendl
@@ -9,13 +9,20 @@
 ===========================================
 */
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-import { Component } from '@angular/core';
+.text-center {
+  text-align: center;
+}
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
+.title {
+  margin: 30px auto 40px;
+}
+
+.contact-container {
+  width: 75%;
 }
