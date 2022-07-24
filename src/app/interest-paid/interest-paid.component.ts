@@ -1,7 +1,7 @@
 /*
 ============================================
 ; Title: Loan_App
-; File Name: gpa.component.ts
+; File Name: interest-paid.component.ts
 ; Author: Professor Krasso
 ; Date: 20 July 2022
 ; Modified By: Laura Kendl
