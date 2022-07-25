@@ -24,5 +24,6 @@
 }
 
 .contact-container {
-  width: 75%;
+  height: 25vh;
+  padding-top: 50px;
 }
