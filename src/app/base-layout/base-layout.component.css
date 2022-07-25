@@ -22,6 +22,10 @@
   box-shadow: 3px 3px 5px #0E1A40;
 }
 
+.links {
+  margin: 25px 15px 0px;
+}
+
 .main-container {
   padding-top: 25px;
   width: 80%;
