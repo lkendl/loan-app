@@ -11,55 +11,58 @@
 ===========================================
 -->
 
-<mat-card-title class="title text-center gold">Welcome to the Loan Application!</mat-card-title>
+<div style="width: 100%">
 
-<div fxLayout="row wrap" fxLayoutGap="20px">
+  <mat-card-title class="title text-center gold">Welcome to the Loan Application!</mat-card-title>
 
-  <div fxFlex class="grade-form">
-    <mat-card class="mat-elevation-z8">
+  <div fxLayout="row wrap"  fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px 12px grid">
 
-       <mat-card-content>
+    <div fxFlex class="grade-form">
+      <mat-card class="mat-elevation-z8">
 
-        <mat-label>Loan Amount:</mat-label>
+        <mat-card-content>
 
-        <form fxLayout="column" fxLayoutGap="16px" [formGroup]="calculatorForm">
+          <mat-label>Loan Amount:</mat-label>
 
-          <mat-form-field fxFlex appearance="fill">
-            <mat-label>Loan Amount</mat-label>
-            <input type="number" name="txtLoanAmount" required id="txtLoanAmount" matInput formControlName="loanAmount" />
-          </mat-form-field>
+          <form fxLayout="column" fxLayoutGap="16px" [formGroup]="calculatorForm">
 
-          <mat-label>Interest Rate (ex: 4.5):</mat-label>
-          <mat-form-field fxFlex appearance="fill">
-            <mat-label>Interest Rate</mat-label>
-            <input type="number" name="txtInterestRate" required id="txtInterestRate" matInput formControlName="interestRate" />
-          </mat-form-field>
+            <mat-form-field fxFlex appearance="fill">
+              <mat-label>Loan Amount</mat-label>
+              <input type="number" name="txtLoanAmount" required id="txtLoanAmount" matInput formControlName="loanAmount" />
+            </mat-form-field>
 
-          <mat-label>Number of years:</mat-label>
-          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Interest Rate (ex: 4.5):</mat-label>
+            <mat-form-field fxFlex appearance="fill">
+              <mat-label>Interest Rate</mat-label>
+              <input type="number" name="txtInterestRate" required id="txtInterestRate" matInput formControlName="interestRate" />
+            </mat-form-field>
+
             <mat-label>Number of years:</mat-label>
-            <input type="number" name="txtNumberOfYears" required id="txtNumberOfYears" matInput formControlName="numberOfYears" />
-          </mat-form-field>
+            <mat-form-field fxFlex appearance="fill">
+              <mat-label>Number of years:</mat-label>
+              <input type="number" name="txtNumberOfYears" required id="txtNumberOfYears" matInput formControlName="numberOfYears" />
+            </mat-form-field>
 
-          <button mat-button color="primary" (click)="calculatePayment()">Calculate</button>
+            <button mat-raised-button color="accent" (click)="calculatePayment()">Calculate</button>
 
-        </form>
-      </mat-card-content>
-    </mat-card>
-  </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
-  <div fxFlex class="monthly-payment">
+    <div fxFlex class="monthly-payment">
 
-    <mat-card class="mat-elevation-z8 text-center">
-      <mat-card-title>Your monthly payment:</mat-card-title>
-      <mat-card-content class="resultsContainer">
-        <app-monthly-payment [monthlyPaymentTotal]="monthlyPaymentTotal" class="gold" id="monthlyPaymentTotal"></app-monthly-payment>
-      </mat-card-content>
+      <mat-card class="mat-elevation-z10 text-center">
+        <mat-card-title>Your monthly payment:</mat-card-title>
+        <mat-card-content class="resultsContainer">
+          <app-monthly-payment [monthlyPaymentTotal]="monthlyPaymentTotal" class="gold" id="monthlyPaymentTotal"></app-monthly-payment>
+        </mat-card-content>
 
-      <mat-card-title>Interest paid:</mat-card-title>
-      <mat-card-content class="resultsContainer">
-        <app-interest-paid [interestPaidTotal]="interestPaidTotal" class="gold" id="interestPaid"></app-interest-paid>
-      </mat-card-content>
-    </mat-card>
+        <mat-card-title>Interest paid:</mat-card-title>
+        <mat-card-content class="resultsContainer">
+          <app-interest-paid [interestPaidTotal]="interestPaidTotal" class="gold" id="interestPaid"></app-interest-paid>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>

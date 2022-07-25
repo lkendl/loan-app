@@ -14,9 +14,11 @@
   text-align: center;
   z-index: 999;
   background-color: #FFF;
-  padding: 15px;
-  border-radius: 100%;
+  padding-top: 8px;
+  /* border-radius: 100%; */
   width: 70px;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .main-container {
